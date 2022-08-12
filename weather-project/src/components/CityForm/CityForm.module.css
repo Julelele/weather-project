@@ -1,24 +1,32 @@
 .form {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .searchField {
-  width: 100%;
-  padding: 10px 35px 10px 15px;
+  width: 10em;
+  padding: 10px 35px 10px 20px;
   border: none;
   border-radius: 100px;
   outline: none;
+  font-size: 1.7em;
+  font-weight: 500;
+  justify-items: center;
+}
+
+.searchField::placeholder {
+  color: rgba(0, 0, 0, 0.301);
 }
 
 .searchButton {
   background: transparent;
   border: none;
   outline: none;
-  margin-left: -33px;
+  margin-left: -50px;
 }
 
 .searchButton img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
 }

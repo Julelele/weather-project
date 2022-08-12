@@ -1,35 +1,20 @@
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Layout from "./components/Layout/Layout";
 
-import { nameToCoord } from "./lib/api";
-import { dataOneCity } from "./lib/api";
-import CityForm from "./components/CityForm/CityForm";
+import Layout from "./components/Layout/Layout";
+import HomePage from "./pages/HomePage";
+import Favourites from "./pages/Favourites";
 
 function App() {
-
-  async function submitCityHandler(cityName) {
-    const convertCity = await nameToCoord(cityName);
-    const lat = convertCity.lat;
-    const lon = convertCity.lon;
-
-    const fetchedCity = await dataOneCity(lat, lon);
-    console.log(fetchedCity);
-    console.log(fetchedCity.name);
-    console.log(fetchedCity.main.temp);
-    console.log(fetchedCity.coord.lat, fetchedCity.coord.lon);
-  }
-
   return (
     <Layout>
-      <div className="App">
-        <CityForm onConfirm={submitCityHandler}/>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favourites" element={<Favourites />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </Layout>
   );
 }
 
 export default App;
-
-//Ideen:
-//const fetchedCity, lat, lon mit redux speichern
-//Wie und wann abrufen? Wo gemacht?
