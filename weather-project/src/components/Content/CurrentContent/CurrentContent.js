@@ -1,6 +1,7 @@
 import classes from "./CurrentContent.module.css";
 import Card from "../../UI/Card";
 import { useSelector } from "react-redux";
+import useTempConverter from "../../../hooks/use-tempConverter";
 
 const CurrentContent = () => {
   const cityName = useSelector((state) => state.current.cityName);
@@ -12,9 +13,9 @@ const CurrentContent = () => {
     <Card className={classes.content}>
       <div>Das heutige Wetter</div>
       <div>Stadt: {cityName} </div>
-      <div>Aktuelle Temperatur: {temp} Kelvin</div>
-      <div>Kelvin Maximale Temperatur: {maxTemp} Kelvin </div>
-      <div>Minimale Temperatur: {minTemp} Kelvin </div>
+      <div>Aktuelle Temperatur: {useTempConverter(temp, "Kelvin")} °C </div>
+      <div>Maximale Temperatur: {useTempConverter(maxTemp, "Kelvin")} °C </div>
+      <div>Minimale Temperatur: {useTempConverter(minTemp, "Kelvin")} °C </div>
     </Card>
   );
 };
