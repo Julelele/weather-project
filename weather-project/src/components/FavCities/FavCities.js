@@ -3,7 +3,7 @@ import Card from "../UI/Card";
 
 
 const FavCities = () => {
-  return <Card></Card>;
+  return <Card>Favouriten</Card>;
 };
 
 export default FavCities;

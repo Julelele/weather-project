@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialCurrentState = {
   cityName: "",
   temp: "",
+  maxTemp: "",
+  minTemp: "",
 };
 
 const currentSlice = createSlice({
@@ -12,7 +14,8 @@ const currentSlice = createSlice({
     changeCity(state, action) {
       state.cityName = action.payload.cityName;
       state.temp = action.payload.temp;
-      console.log(state.cityName);
+      state.maxTemp = action.payload.maxTemp;
+      state.minTemp = action.payload.minTemp;
     },
   },
 });
