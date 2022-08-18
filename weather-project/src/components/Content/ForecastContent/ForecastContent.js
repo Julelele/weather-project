@@ -2,13 +2,13 @@ import classes from "./ForecastContent.module.css";
 import Card from "../../UI/Card";
 import { useSelector } from "react-redux";
 // import useTempConverter from "../../../hooks/use-tempConverter";
+// import useDateConverter from "../../../hooks/use-dateConverter";
 import ForecastDay from "./ForecastDay";
 
 const ForecastContent = () => {
   const cityName = useSelector((state) => state.forecast.cityName);
   const cityCountry = useSelector((state) => state.forecast.cityCountry);
   const list = useSelector((state) => state.forecast.list);
-
 
   // let weather = [];
   // for (let i = 0; i < list.length; i++) {
@@ -26,7 +26,7 @@ const ForecastContent = () => {
       {list.map((day) => (
         <ForecastDay
           key={day.dt}
-          dateNumber={day.dt}
+          timestamp={day.dt}
           dateString={day.dt_txt}
           temp={day.main.temp}
         />
@@ -40,9 +40,7 @@ const ForecastContent = () => {
       <div>
         {cityName}, {cityCountry}
       </div>
-      <div>
-        {weather}
-      </div>
+      <div>{weather}</div>
     </Card>
   );
 };
