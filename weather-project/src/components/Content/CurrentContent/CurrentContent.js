@@ -10,12 +10,13 @@ const CurrentContent = () => {
   const minTemp = useSelector((state) => state.current.minTemp);
 
   return (
-    <Card className={classes.content}>
-      <div>Das heutige Wetter</div>
-      <div>Stadt: {cityName} </div>
+    <Card>
+      <h1>Heute</h1>
+      <div>{cityName} </div>
       <div>Aktuelle Temperatur: {useTempConverter(temp, "Kelvin")} °C </div>
-      <div>Maximale Temperatur: {useTempConverter(maxTemp, "Kelvin")} °C </div>
-      <div>Minimale Temperatur: {useTempConverter(minTemp, "Kelvin")} °C </div>
+      <div>Maximale Temperatur: {useTempConverter(maxTemp, "Kelvin")} °C</div>
+      <div>Minimale Temperatur: {useTempConverter(minTemp, "Kelvin")} °C</div>
+      <button className={classes.button}>Zu Favouriten</button>
     </Card>
   );
 };

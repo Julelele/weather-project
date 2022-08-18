@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  padding: 40px;
+}
+
+.video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 250%;
+  height: auto;
+}
+
+.wrapper {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgb(42, 67, 111);
+}

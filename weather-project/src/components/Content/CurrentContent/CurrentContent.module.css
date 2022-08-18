@@ -1,4 +1,19 @@
-.content {
-    font-size: 5em;
-    font-weight: 500;
-  }
+.button {
+  position: relative;
+  padding: 0.7rem;
+  margin-top: 0.7rem;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color:rgb(42, 67, 111);
+  border-radius: 10px;
+}
+
+.button:hover,
+.button:active {
+  background-color: rgb(107, 136, 185);
+  border-color: rgb(107, 136, 185);
+}
+
+

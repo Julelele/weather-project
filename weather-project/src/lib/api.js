@@ -1,3 +1,5 @@
+//Kürzen!!!
+
 const apiKey = "7b0b324343680bad56f586df69036d1c";
 
 //Converting city to coordinates
@@ -34,5 +36,15 @@ export async function dataOneCity(lat, lon) {
   return fetchedCity;
 }
 
-//Fragen:
-// - More numbers of the locations in the API response
+//Fetching 5 days forecast data every 3h
+export async function forecast5(lat, lon) {
+  const response = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+  );
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch data.");
+  }
+  //Hier schon Daten kürzen?!
+  return data;
+}
