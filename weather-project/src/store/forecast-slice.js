@@ -6,7 +6,6 @@ const initialForecastState = {
   forecastDays: "",
   list: [],
   timezone: "",
-  counter: 0
 };
 
 const forecastSlice = createSlice({

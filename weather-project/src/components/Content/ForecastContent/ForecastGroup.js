@@ -1,4 +1,4 @@
-import classes from "./ForecastDay.module.css";
+import classes from "./ForecastGroup.module.css";
 import Card from "../../UI/Card";
 import {
   findMaxTemp,
@@ -7,28 +7,25 @@ import {
 } from "../../../utility/Utility";
 
 const ForecastGroup = (props) => {
-  const {today} = props;
-  console.log(today)
-  console.log(props.today)
+  const {day} = props;
 
-
-    const todayTempMax = findMaxTemp(today);
-    const todayTempMin = findMinTemp(today);
-    const todayTempAverage = averageTemp(today);
-    const todayEqualDate = today[0].equalDate;
+    const dayTempMax = findMaxTemp(day);
+    const dayTempMin = findMinTemp(day);
+    const dayTempAverage = averageTemp(day);
+    const dayEqualDate = day[0].equalDate;
 
   return (
     <li className={classes.element}>
       <Card>
-        {todayEqualDate ? (
+        {dayEqualDate ? (
           <h1>Heute</h1>
         ) : (
-          <h1>{today[0].dateArray.dayDate}</h1>
+          <h1>{day[0].dateArray.dayDate}</h1>
         )}
-        <p>{today[0].dateArray.day}. {today[0].dateArray.monthDate}</p>
-        <p>Höchste Temperatur: {todayTempMax}</p>
-        <p>Niedrigste Temperatur: {todayTempMin}</p>
-        <p>Durschshnitt Temperatur: {todayTempAverage}</p>
+        <p>{day[0].dateArray.day}. {day[0].dateArray.monthDate}</p>
+        <p>Höchste Temperatur: {dayTempMax}</p>
+        <p>Niedrigste Temperatur: {dayTempMin}</p>
+        <p>Durschshnitt Temperatur: {dayTempAverage}</p>
       </Card>
     </li>
   );

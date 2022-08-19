@@ -5,10 +5,7 @@ import {
   tempConverter,
   dateConverter,
   timestampConverter,
-  groupArray,
-  findMaxTemp,
-  findMinTemp,
-  averageTemp,
+  groupArray
 } from "../../../utility/Utility";
 import ForecastGroup from "./ForecastGroup";
 
@@ -34,27 +31,21 @@ const ForecastContent = () => {
       counter = counter + 1;
     }
     selectedList.push({ key, equalDate, dateArray, temp, tempMin, tempMax });
-    // const { day, dayDate, monthDate } = dateArray;
   }
-
   const groupDays = groupArray(selectedList, counter);
-  console.log(groupDays);
-  console.log(groupDays.second);
-
-  async function calculate() {
-    const todayTempMax = await findMaxTemp(groupDays.today);
-    const todayTempMin = await findMinTemp(groupDays.today);
-    const todayTempAverage = averageTemp(groupDays.today);
-    console.log(todayTempAverage);
-    console.log(todayTempMin, todayTempMax);
-  }
-  calculate();
 
   const weather = (
     <ul className={classes.list}>
-      <ForecastGroup today={groupDays.today} />
+      <ForecastGroup day={groupDays.today} />
+      <ForecastGroup day={groupDays.second} />
+      <ForecastGroup day={groupDays.third} />
+      <ForecastGroup day={groupDays.fourth} />
+      <ForecastGroup day={groupDays.fifth} />
+      <ForecastGroup day={groupDays.sixth} />
     </ul>
   );
+
+  //Fehler: Beim letzten Tag werden nur die ersten Stunden betrachtet --> kälter
 
   return (
     <Card>

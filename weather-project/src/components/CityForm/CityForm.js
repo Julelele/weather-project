@@ -13,25 +13,13 @@ import { forecastActions } from "../../store/forecast-slice";
 const CityForm = () => {
   const dispatch = useDispatch();
   const [enteredCity, setEnteredCity] = useState("");
-  // const [enteredCityIsValid, setEnteredCityIsValid] = useState(false);
 
   const cityInputChangeHandler = (event) => {
     setEnteredCity(event.target.value);
   };
 
-  // useEffect(() => {
-  //   if (enteredCityIsValid) {
-  //   }
-  // }, [enteredCityIsValid]);
-
   async function submitHandler(event) {
     event.preventDefault();
-
-    // if (enteredCity.trim() === "") {
-    //   setEnteredCityIsValid(false);
-    //   return;
-    // }
-    // setEnteredCityIsValid(true);
 
     const convertCity = await nameToCoord(enteredCity);
     const lat = convertCity.lat;
@@ -39,7 +27,6 @@ const CityForm = () => {
     const fetchedCity = await dataOneCity(lat, lon);
     const forecastData = await forecast5(lat, lon);
     setEnteredCity("");
-    // setEnteredCityIsValid(false);
 
     dispatch(
       currentActions.changeCity({
@@ -71,7 +58,6 @@ const CityForm = () => {
           onChange={cityInputChangeHandler}
           value={enteredCity}
         />
-
         <button type="button" className={classes.searchButton}>
           <img src={search} alt="search" />
         </button>
