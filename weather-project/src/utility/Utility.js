@@ -53,8 +53,7 @@ export const groupArray = (array, counter) => {
   const third = array.slice(counter + 8, counter + 2 * 8);
   const fourth = array.slice(counter + 2 * 8, counter + 3 * 8);
   const fifth = array.slice(counter + 3 * 8, counter + 4 * 8);
-  const sixth = array.slice(counter + 4 * 8, array.length);
-  return { today, second, third, fourth, fifth, sixth };
+  return [today, second, third, fourth, fifth ];
 };
 
 export function findMaxTemp (array) {

@@ -1,0 +1,43 @@
+.accordion {
+  background-color: rgb(42, 67, 111);
+  color: white;
+  cursor: pointer;
+  padding: 0.7rem;
+  width: inherit;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* .active,
+.accordion:hover {
+  background-color: rgb(107, 136, 185);
+} */
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.textLeft {
+  text-align: left;
+  float: left;
+  display: block;
+}
+
+.textRight {
+  text-align: right;
+  display: block;
+}
+
+.accordionContent {
+  color: rgb(42, 67, 111);
+}

@@ -23,9 +23,9 @@ const ForecastGroup = (props) => {
           <h1>{day[0].dateArray.dayDate}</h1>
         )}
         <p>{day[0].dateArray.day}. {day[0].dateArray.monthDate}</p>
-        <p>Höchste Temperatur: {dayTempMax}</p>
-        <p>Niedrigste Temperatur: {dayTempMin}</p>
-        <p>Durschshnitt Temperatur: {dayTempAverage}</p>
+        <p>Höchste Temperatur: {dayTempMax} °C</p>
+        <p>Niedrigste Temperatur: {dayTempMin} °C</p>
+        <p>Durschschnitt Temperatur: {dayTempAverage} °C</p>
       </Card>
     </li>
   );

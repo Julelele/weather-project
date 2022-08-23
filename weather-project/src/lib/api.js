@@ -48,3 +48,11 @@ export async function forecast5(lat, lon) {
   //Hier schon Daten kürzen?!
   return data;
 }
+
+export async function mapTempNew(x,y,z) {
+  const response = await fetch(
+    `https://tile.openweathermap.org/map/{temp_new}/${z}/${x}/${y}.png?appid=${apiKey}`
+  );
+  const data = await response.json();
+  return data;
+}

@@ -5,7 +5,7 @@ import {
   tempConverter,
   dateConverter,
   timestampConverter,
-  groupArray
+  groupArray,
 } from "../../../utility/Utility";
 import ForecastGroup from "./ForecastGroup";
 
@@ -13,11 +13,11 @@ const ForecastContent = () => {
   const cityName = useSelector((state) => state.forecast.cityName);
   const cityCountry = useSelector((state) => state.forecast.cityCountry);
   const list = useSelector((state) => state.forecast.list);
-
   const today = dateConverter(new Date()); //array
-  let counter = 0;
   const selectedList = [];
+  let counter = 0;
 
+  //cleaner?
   for (let i = 0; i < list.length; i++) {
     const key = i;
     const timestamp = list[i].dt;
@@ -32,20 +32,17 @@ const ForecastContent = () => {
     }
     selectedList.push({ key, equalDate, dateArray, temp, tempMin, tempMax });
   }
+
   const groupDays = groupArray(selectedList, counter);
 
+  //key prop
   const weather = (
     <ul className={classes.list}>
-      <ForecastGroup day={groupDays.today} />
-      <ForecastGroup day={groupDays.second} />
-      <ForecastGroup day={groupDays.third} />
-      <ForecastGroup day={groupDays.fourth} />
-      <ForecastGroup day={groupDays.fifth} />
-      <ForecastGroup day={groupDays.sixth} />
+      {groupDays.map((day) => (
+        <ForecastGroup day={day} />
+      ))}
     </ul>
   );
-
-  //Fehler: Beim letzten Tag werden nur die ersten Stunden betrachtet --> kälter
 
   return (
     <Card>
