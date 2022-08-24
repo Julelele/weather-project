@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const favSlice = createSlice({
   name: "favourite",
-  initialState: { favList: ["Bamberg", "Erlangen", "Nuremberg"] },
+  initialState: { favList: ["Bamberg", "Nuremberg", "Erlangen"] },
   reducers: {
     addFav(state, action) {
       state.favList.push(action.payload.favCity);
