@@ -5,21 +5,10 @@ const favSlice = createSlice({
   initialState: { favList: ["Bamberg", "Erlangen", "Nuremberg"] },
   reducers: {
     addFav(state, action) {
-      const newFav = action.payload.favCity;
-      const existingCity = state.favList.find((city) => city === newFav);
-      if (!existingCity) {
-        state.favList.push(newFav);
-      }
+      state.favList.push(action.payload.favCity);
     },
     removeFav(state, action) {
-      const removeCity = action.payload.favCity;
-      const indexCity = state.favList.indexOf(removeCity);
-      if (indexCity !== -1) {
-        const newFavList = state.favList.filter(function (f) {
-          return f !== state.favList[indexCity];
-        });
-        state.favList = newFavList;
-      }
+      state.favList = action.payload.newFavList;
     },
   },
 });

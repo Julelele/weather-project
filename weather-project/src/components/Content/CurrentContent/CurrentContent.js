@@ -20,9 +20,17 @@ const CurrentContent = () => {
     }
   }, [favList, cityName]);
 
+  function filterList() {
+    const indexCity = favList.indexOf(cityName);
+    const newFavList = favList.filter(function (f) {
+      return f !== favList[indexCity];
+    });
+    return newFavList;
+  }
+
   function addCityHandler() {
     isFavourite
-      ? dispatch(favActions.removeFav({ favCity: cityName })) &&
+      ? dispatch(favActions.removeFav({ newFavList: filterList() })) &&
         setFavourite(false)
       : dispatch(favActions.addFav({ favCity: cityName })) &&
         setFavourite(true);
@@ -34,7 +42,7 @@ const CurrentContent = () => {
       <p>{cityName} </p>
       <p>Aktuelle Temperatur: {tempConverter(temp, "Kelvin")} °C </p>
       <button className={classes.button1} onClick={addCityHandler}>
-        Lieblingststadt {isFavourite ? "entfernen" : "hinzugügen"}
+        Lieblingsstadt {isFavourite ? "entfernen" : "hinzufügen"}
       </button>
     </Card>
   );
