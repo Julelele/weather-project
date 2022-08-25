@@ -91,6 +91,6 @@ export const averageTemp = (array) => {
   for (let i = 0; i < array.length; i++) {
     sum = sum + Number(array[i].temp);
   }
-  const average = (sum / array.length).toFixed(2);
+  const average = (sum / array.length).toFixed(1);
   return average;
 };

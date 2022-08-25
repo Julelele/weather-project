@@ -37,16 +37,16 @@ const CurrentContent = (props) => {
         setFavourite(true);
   }
 
-  //key and only 8 timestamps!
   const next24hEvery3h = (
     <ul className={classes.list}>
-      {props.selectedList.map((timestamp) => (
+      {props.selectedList.slice(0, 8).map((timestamp) => (
         <ForecastToday
-          key={timestamp.key}
+          amount={timestamp.key}
           time={timestamp.time}
           dateArray={timestamp.dateArray}
           equalDate={timestamp.equalDate}
           temp={timestamp.temp}
+          weather={timestamp.weather}
         />
       ))}
     </ul>

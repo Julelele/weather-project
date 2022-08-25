@@ -26,11 +26,21 @@ const Content = () => {
     const dateTS = timestampConverter(timestamp);
     const dateArray = dateConverter(dateTS); //array
     const time = timeConverter(dateTS);
+    const weather = list[i].weather[0];
     const equalDate = JSON.stringify(today) === JSON.stringify(dateArray);
     if (equalDate) {
       counter = counter + 1;
     }
-    selectedList.push({ key, equalDate, dateArray, time, temp, tempMin, tempMax });
+    selectedList.push({
+      key,
+      equalDate,
+      dateArray,
+      time,
+      temp,
+      tempMin,
+      tempMax,
+      weather
+    });
   }
 
   return (
