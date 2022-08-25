@@ -3,10 +3,7 @@ import CardWhite from "../../UI/CardWhite";
 
 const ForecastToday = (props) => {
   const { amount, dateArray, time, temp, weather } = props;
-  const weatherIcon = weather.icon;
-  console.log(weatherIcon);
-
-  //time and key is missing
+  
   return (
     <li className={classes.element}>
       <CardWhite>
@@ -16,7 +13,7 @@ const ForecastToday = (props) => {
         </p>
         <p>{temp} °C</p>
         <img
-          src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+          src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
           alt="weatherIcon"
         />
       </CardWhite>
