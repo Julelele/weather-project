@@ -16,4 +16,16 @@
   border-color: rgb(107, 136, 185);
 }
 
+.list {
+  height: min-content;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: auto;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  padding:0px;
+  border-radius: 8px ;
+}
+
 

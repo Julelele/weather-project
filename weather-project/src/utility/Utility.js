@@ -36,7 +36,7 @@ export const dateConverter = (date) => {
 
 export const tempConverter = (temp, unit = "Kelvin") => {
   if ((unit = "Kelvin")) {
-    const convertedTemp = (temp - 273.15).toFixed(2);
+    const convertedTemp = (temp - 273.15).toFixed(1);
     return convertedTemp;
   }
   return null;
@@ -53,20 +53,20 @@ export const groupArray = (array, counter) => {
   const third = array.slice(counter + 8, counter + 2 * 8);
   const fourth = array.slice(counter + 2 * 8, counter + 3 * 8);
   const fifth = array.slice(counter + 3 * 8, counter + 4 * 8);
-  return [today, second, third, fourth, fifth ];
+  return [today, second, third, fourth, fifth];
 };
 
-export function findMaxTemp (array) {
+export function findMaxTemp(array) {
   let max = array[0].tempMax;
   if (array.length > 1) {
     for (let i = 1; i < array.length; i++) {
-       if (array[i].tempMax > max) {
+      if (array[i].tempMax > max) {
         max = array[i].tempMax;
       }
     }
   }
   return max;
-};
+}
 
 export const findMinTemp = (array) => {
   let min = array[0].tempMin;

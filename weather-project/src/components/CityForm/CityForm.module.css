@@ -3,7 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+
 .searchField {
+  color: rgb(42, 67, 111);
   width: 10em;
   padding: 10px 35px 10px 20px;
   border: none;
@@ -12,6 +14,9 @@
   font-size: 1.7em;
   font-weight: 500;
   justify-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
 }
 
 .searchField::placeholder {

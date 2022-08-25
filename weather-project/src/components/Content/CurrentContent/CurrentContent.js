@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { tempConverter } from "../../../utility/Utility";
 import { favActions } from "../../../store/fav-slice";
+import ForecastToday from "./ForecastToday";
 
-const CurrentContent = () => {
+const CurrentContent = (props) => {
   const dispatch = useDispatch();
   const [isFavourite, setFavourite] = useState(false);
   const cityName = useSelector((state) => state.current.cityName);
@@ -36,6 +37,20 @@ const CurrentContent = () => {
         setFavourite(true);
   }
 
+  //key and only 8 timestamps!
+  const next24hEvery3h = (
+    <ul className={classes.list}>
+      {props.selectedList.map((timestamp) => (
+        <ForecastToday
+          key={timestamp.key}
+          dateArray={timestamp.dateArray}
+          equalDate={timestamp.equalDate}
+          temp={timestamp.temp}
+        />
+      ))}
+    </ul>
+  );
+
   return (
     <Card>
       <h1>Heute</h1>
@@ -44,6 +59,7 @@ const CurrentContent = () => {
       <button className={classes.button1} onClick={addCityHandler}>
         Lieblingsstadt {isFavourite ? "entfernen" : "hinzufügen"}
       </button>
+      <div>{next24hEvery3h}</div>
     </Card>
   );
 };
