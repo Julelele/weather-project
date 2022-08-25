@@ -34,6 +34,12 @@ export const dateConverter = (date) => {
   return { day, dayDate, monthDate };
 };
 
+export const timeConverter = (date) => {
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  return {hours, minutes}
+}
+
 export const tempConverter = (temp, unit = "Kelvin") => {
   if ((unit = "Kelvin")) {
     const convertedTemp = (temp - 273.15).toFixed(1);

@@ -43,6 +43,7 @@ const CurrentContent = (props) => {
       {props.selectedList.map((timestamp) => (
         <ForecastToday
           key={timestamp.key}
+          time={timestamp.time}
           dateArray={timestamp.dateArray}
           equalDate={timestamp.equalDate}
           temp={timestamp.temp}

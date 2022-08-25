@@ -7,11 +7,11 @@ import { useSelector } from "react-redux";
 import {
   tempConverter,
   dateConverter,
-  timestampConverter
+  timestampConverter,
+  timeConverter,
 } from "../../utility/Utility";
 
 const Content = () => {
-
   const list = useSelector((state) => state.forecast.list);
   const today = dateConverter(new Date());
 
@@ -25,19 +25,20 @@ const Content = () => {
     const tempMax = tempConverter(list[i].main.temp_max);
     const dateTS = timestampConverter(timestamp);
     const dateArray = dateConverter(dateTS); //array
+    const time = timeConverter(dateTS);
     const equalDate = JSON.stringify(today) === JSON.stringify(dateArray);
     if (equalDate) {
       counter = counter + 1;
     }
-    selectedList.push({ key, equalDate, dateArray, temp, tempMin, tempMax });
+    selectedList.push({ key, equalDate, dateArray, time, temp, tempMin, tempMax });
   }
 
   return (
     <div className={classes.container}>
       <video className={classes.video} src={video} autoPlay loop muted />
       <div className={classes.wrapper}>
-        <FavContent/>
-        <CurrentContent selectedList={selectedList}/>
+        <FavContent />
+        <CurrentContent selectedList={selectedList} />
         <ForecastContent selectedList={selectedList} counter={counter} />
       </div>
     </div>
